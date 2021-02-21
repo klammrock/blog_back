@@ -1,0 +1,15 @@
+package name.klamm.back
+
+
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+@RequestMapping("/api/v1/rest")
+class RestController {
+    @GetMapping()
+    fun test(): String {
+        return "hello";
+    }
+}
