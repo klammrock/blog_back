@@ -1,0 +1,31 @@
+server:
+  port: 3000
+spring:
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:postgresql://localhost/blog?stringtype=unspecified
+    #url: jdbc:postgresql://postgres/brownie-waste?stringtype=unspecified
+    #url: jdbc:postgresql://waste.brownie.dev.dc.integer-soft.ru/brownie-waste?stringtype=unspecified
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    # https://habr.com/ru/post/440734/
+    open-in-view: true
+    hibernate:
+      # for Liquibase
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: true
+  jackson:
+    serialization:
+      indent_output: true
+logging:
+  level:
+    #    root: DEBUG
+    ru.integer_soft.brownie_waste_management.webapi: DEBUG
