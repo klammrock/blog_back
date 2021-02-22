@@ -8,10 +8,13 @@
     <changeSet author="v.baranov" id="2021-02-21-1">
         <comment>Init</comment>
         <sql>
-            -- Компании
+            -- Посты
             CREATE TABLE public.posts (
-                id serial NOT NULL PRIMARY KEY,
-                text varchar(255) NOT NULL UNIQUE
+                name varchar(255) NOT NULL PRIMARY KEY,
+                title varchar(255) NOT NULL UNIQUE,
+                text text NOT NULL,
+                created_at timestamptz NOT NULL DEFAULT now(),
+                updated_at timestamptz NOT NULL DEFAULT now()
             );
         </sql>
         <rollback>

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface PostsRepository : JpaRepository<Post, Long> {
-    fun findAllByOrderByIdAsc(): List<Post>
+    fun findAllByOrderByCreatedAtDesc(): List<Post>
 }

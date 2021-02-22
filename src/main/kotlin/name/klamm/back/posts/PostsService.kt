@@ -7,6 +7,6 @@ class PostsService constructor(
     private val postsRepository: PostsRepository,
 ) {
     fun posts() : List<Post> {
-        return postsRepository.findAllByOrderByIdAsc()
+        return postsRepository.findAllByOrderByCreatedAtDesc()
     }
 }
